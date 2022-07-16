@@ -43,9 +43,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch(" https://tim-loon-08952.herokuapp.com")
+    fetch("http://18.237.118.43:4000/")
       .then((response) => response.json())
-      .then(console.log);
+      .then((data) => {
+        console.log(data);
+      });
   }
 
   calculateFaceLocation = (data) => {
@@ -72,7 +74,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    fetch(" https://tim-loon-08952.herokuapp.com/imageurl", {
+    fetch("http://18.237.118.43:4000/imageurl", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -82,7 +84,7 @@ class App extends Component {
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          fetch(" https://tim-loon-08952.herokuapp.com/image", {
+          fetch("http://18.237.118.43:4000/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
