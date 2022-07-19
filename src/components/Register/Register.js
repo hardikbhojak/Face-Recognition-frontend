@@ -21,7 +21,8 @@ class Register extends React.Component {
   onSubmitRegister = (e) => {
     e.preventDefault();
 
-    fetch("http://18.237.118.43:4000/register", {
+    fetch("https://tim-loon-08952.herokuapp.com/register", {
+      mode: "cors",
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

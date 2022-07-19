@@ -18,7 +18,8 @@ class SignIn extends React.Component {
   onSubmitSignIn = (e) => {
     e.preventDefault();
 
-    fetch("http://18.237.118.43:4000/signin", {
+    fetch("https://tim-loon-08952.herokuapp.com/signin", {
+      mode: "cors",
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

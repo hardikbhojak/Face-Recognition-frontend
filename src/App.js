@@ -43,7 +43,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch("http://18.237.118.43:4000/")
+    fetch("https://tim-loon-08952.herokuapp.com/", { mode: "cors" })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -74,7 +74,8 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    fetch("http://18.237.118.43:4000/imageurl", {
+    fetch("https://tim-loon-08952.herokuapp.com/imageurl", {
+      mode: "cors",
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -84,7 +85,8 @@ class App extends Component {
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          fetch("http://18.237.118.43:4000/image", {
+          fetch("https://tim-loon-08952.herokuapp.com/image", {
+            mode: "cors",
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
